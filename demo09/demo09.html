@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<title>this is demo09</title>
+		<script src="../build/react.js"></script>
+		<script src="../build/react-dom.js"></script>
+		<script src="../build/browser.min.js"></script>
+	</head>
+	<body>
+		<div id="example">
+			<script type="text/babel">
+			var LikeButton = React.createClass({
+				getInitialState: function(){
+					return {liked: false};
+				},
+				handleClick: function (event){
+					this.setState({liked: !this.state.liked});
+				},
+				render: function() {
+					var text = this.state.liked?'like':'haven\'t liked';
+					return (
+						<div>
+							<input type="button" value="change the status" onClick={this.handleClick} />
+							<p>
+								You {text} this.click to toggle. 
+							</p>
+							
+						</div>
+						);
+				}
+			});
+				ReactDOM.render(
+					<LikeButton  />,
+					document.getElementById('example')
+				);
+			</script>
+		</div>
+	</body>
+</html>

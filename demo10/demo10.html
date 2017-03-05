@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<title>this is demo010</title>
+		<script src="../build/react.js"></script>
+		<script src="../build/react-dom.js"></script>
+		<script src="../build/browser.min.js"></script>
+	</head>
+	<body>
+		<div id="example">
+			<script type="text/babel">
+			var Input = React.createClass({
+				getInitialState: function(){
+					return {value: 'Hello'};
+				},
+				handleClick: function (event){
+					this.setState({value: event.target.value});
+				},
+				render: function() {
+					var value = this.state.value;
+					return (
+						<div>
+							<input type="text" value={value} onClick={this.handleClick} />
+							<p>
+								{value} 
+							</p>
+							
+						</div>
+						);
+				}
+			});
+				ReactDOM.render(
+					<Input  />,
+					document.body
+				);
+			</script>
+		</div>
+	</body>
+</html>
